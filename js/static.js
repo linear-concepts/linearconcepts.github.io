@@ -1,3 +1,6 @@
+let navToggle = false;
+let scrollHeader = true;
+
 function generateLinks(page) {
   const innerHTML = `<div class="links">
     <div class="link ${page == "home" ? "current" : ""}">
@@ -57,9 +60,73 @@ function generateFooter() {
   return footerHTML;
 }
 
+function fixHeader() {
+  $("header").addClass("dark");
+  $("header .logo img").attr("src", "../img/LCLogoBlack.svg");
+  scrollHeader = false;
+}
+
+function headerScroll(page) {
+  let i = $(window).scrollTop();
+  if (i > 25) {
+    $("header").addClass("dark");
+    $("header .logo img").attr(
+      "src",
+      `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
+    );
+  } else {
+    $("header").removeClass("dark");
+    $("header .logo img").attr(
+      "src",
+      `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
+    );
+  }
+}
+
+function openNav() {
+  $("nav").css("display", "block");
+  setTimeout(function() {
+    $("nav").css("opacity", "1");
+  }, 100);
+  $(".hamburger").addClass("close");
+  $("header").removeClass("dark");
+  $("header .logo img").attr(
+    "src",
+    `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
+  );
+  navToggle = true;
+}
+
+function closeNav() {
+  $("nav").css("opacity", "0");
+  setTimeout(function() {
+    $("nav").css("display", "none");
+  }, 500);
+  $(".hamburger").removeClass("close");
+
+  navToggle = false;
+}
+
 $(document).ready(function() {
-  const page = $("header").attr("class");
+  const page = $("header").attr("aria-label");
   $("header").html(generateHeader(page));
   $("nav").html(generateLinks(page));
   $("footer").html(generateFooter());
+  if (page == "about") {
+    fixHeader();
+  }
+
+  $(window).scroll(function() {
+    if (scrollHeader && !navToggle) {
+      headerScroll(page);
+    }
+  });
+
+  $("header").on("click", ".hamburger", function() {
+    if (navToggle) {
+      closeNav();
+    } else {
+      openNav();
+    }
+  });
 });
