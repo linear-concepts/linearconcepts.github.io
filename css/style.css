@@ -154,7 +154,8 @@ header {
     width: 25px;
     height: 15px;
     z-index: 1002;
-    cursor: pointer; }
+    cursor: pointer;
+    pointer-events: all; }
     header .hamburger .line-1 {
       position: absolute;
       top: 0;
