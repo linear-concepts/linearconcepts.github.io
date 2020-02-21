@@ -4,19 +4,21 @@ $(document).ready(function() {
   const page = $("header").attr("class");
 
   $(window).scroll(function() {
-    let i = $(window).scrollTop();
-    if (i > 25) {
-      $("header").addClass("dark");
-      $("header .logo img").attr(
-        "src",
-        `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
-      );
-    } else {
-      $("header").removeClass("dark");
-      $("header .logo img").attr(
-        "src",
-        `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
-      );
+    if (!navToggle) {
+      let i = $(window).scrollTop();
+      if (i > 25) {
+        $("header").addClass("dark");
+        $("header .logo img").attr(
+          "src",
+          `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
+        );
+      } else {
+        $("header").removeClass("dark");
+        $("header .logo img").attr(
+          "src",
+          `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
+        );
+      }
     }
   });
 
