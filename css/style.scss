@@ -178,6 +178,7 @@ header {
       right: 0;
       width: 100%;
       height: 3px;
+      border-radius: 3px;
       background: #fff;
       @include smoothtransition(0.25s);
     }
@@ -188,6 +189,7 @@ header {
       right: 0;
       width: 100%;
       height: 3px;
+      border-radius: 3px;
       background: #fff;
       @include smoothtransition(0.25s);
     }
