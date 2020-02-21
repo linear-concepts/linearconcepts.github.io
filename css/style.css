@@ -19,6 +19,12 @@
 ::-webkit-scrollbar-corner {
   background-color: transparent; }
 
+::-moz-selection {
+  background: #c7a76688; }
+
+::selection {
+  background: #c7a76688; }
+
 /*Body*/
 body {
   margin: 0px;

@@ -40,6 +40,10 @@ $header-height: 100px;
   background-color: transparent;
 }
 
+::selection {
+  background: #c7a76688;
+}
+
 /*Body*/
 
 body {

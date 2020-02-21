@@ -7,24 +7,24 @@ $(document).ready(function() {
     $("section.image-slide").mousemove(function(e) {
       $("section.image-slide .content h1").css(
         "top",
-        `${(e.clientY - h) / 20}px`
+        `${(e.clientY - h) / 30}px`
       );
       $("section.image-slide .content h1").css(
         "left",
-        `${(e.clientX - w) / 20}px`
+        `${(e.clientX - w) / 30}px`
       );
       $("section.image-slide .content h5").css(
         "top",
-        ` ${(e.clientY - h) / 30}px`
+        ` ${(e.clientY - h) / 40}px`
       );
       $("section.image-slide .content h5").css(
         "left",
-        `${(e.clientX - w) / 30}px`
+        `${(e.clientX - w) / 40}px`
       );
       $("section.image-slide .slider").css(
         "transform",
-        `translate(${(w - e.clientX) / 40}px, ${(h - e.clientY) /
-          40}px) scale(1.1)`
+        `translate(${(w - e.clientX) / 30}px, ${(h - e.clientY) /
+          30}px) scale(1.1)`
       );
     });
   }
