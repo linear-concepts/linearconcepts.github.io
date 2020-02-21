@@ -45,8 +45,22 @@ function generateHeader(page) {
   return headerHTML;
 }
 
+function generateFooter() {
+  const footerHTML = `<div class="content-lg">
+  <p class="sm">
+    Copyright Linear Concepts 2020 &middot; Made by <a>Abhinav Thukral</a>
+  </p>
+  <div class="socials">
+    <a><i class="fab fa-facebook-f"></i></a>
+    <a><i class="fab fa-instagram"></i></a>
+  </div>
+</div>`;
+  return footerHTML;
+}
+
 $(document).ready(function() {
   const page = $("header").attr("class");
   $("header").html(generateHeader(page));
   $("nav").html(generateLinks(page));
+  $("footer").html(generateFooter());
 });

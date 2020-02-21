@@ -60,6 +60,7 @@ header {
   width: 100%;
   height: $header-height;
   background: transparent;
+  pointer-events: none;
   z-index: 1000;
   @include transition(0.4s);
 
@@ -84,6 +85,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    pointer-events: all;
 
     .link {
       position: relative;
@@ -269,7 +271,7 @@ nav {
 }
 
 section {
-  padding: 60px 0px;
+  padding: 50px 0px;
   width: 100%;
   background: #000;
 }
@@ -293,27 +295,39 @@ section.white {
 @keyframes slideshow {
   0% {
     left: 0%;
+    transform-origin: 12.5% 50%;
   }
   20% {
     left: 0%;
+    transform-origin: 12.5% 50%;
   }
   25% {
     left: -100%;
+    transform-origin: 37.5% 50%;
   }
   45% {
     left: -100%;
+    transform-origin: 37.5% 50%;
   }
   50% {
     left: -200%;
+    transform-origin: 62.5% 50%;
   }
   70% {
     left: -200%;
+    transform-origin: 62.5% 50%;
   }
   75% {
     left: -300%;
+    transform-origin: 87.5% 50%;
   }
   95% {
     left: -300%;
+    transform-origin: 87.5% 50%;
+  }
+  100% {
+    left: 0%;
+    transform-origin: 12.5% 50%;
   }
 }
 section.image-slide {
@@ -322,7 +336,7 @@ section.image-slide {
   padding: 0px;
   height: 100vh;
   background-color: #111;
-  overflow-x: hidden;
+  overflow: hidden;
 
   .slider {
     position: absolute;
@@ -331,8 +345,9 @@ section.image-slide {
     height: 100%;
     width: 400%;
     display: flex;
-    @include transition(0.5s);
     animation: slideshow 15s infinite;
+    transform-origin: 50% 0;
+    transform: translate(0, 0) scale(1.1);
 
     .slide {
       width: 25%;
@@ -340,7 +355,7 @@ section.image-slide {
     }
 
     .slide:nth-child(1) {
-      background-image: url("../img/The Leaf House/Image 13.jpg");
+      background-image: url("../img/The Leaf House/Image 5.jpg");
       background-size: cover;
       background-position: center center;
     }
@@ -376,7 +391,7 @@ section.image-slide {
   }
 
   .slider:after {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.25);
   }
 
   .content {
@@ -384,6 +399,13 @@ section.image-slide {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    h1,
+    h5 {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
   }
 }
 
@@ -509,6 +531,62 @@ button:hover:after {
   height: 100%;
   width: 100%;
   border-radius: 0px;
+}
+
+.sm {
+  font-size: 0.8em;
+}
+
+p {
+  a {
+    padding-bottom: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    @include transition(0.2s);
+  }
+
+  a:hover {
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+}
+
+footer {
+  padding: 20px 0px;
+  background: #000;
+
+  .content-lg {
+    border-top: 1px solid #111;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  p.sm {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.7em;
+    width: 50%;
+
+    .fas {
+      font-size: 0.75em;
+    }
+  }
+
+  .socials {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #fff;
+
+    a {
+      margin: 15px;
+      font-size: 1.25em;
+      cursor: pointer;
+      @include transition(0.25s);
+    }
+
+    a:hover {
+      color: $primary-color !important;
+    }
+  }
 }
 
 @media only screen and (max-width: 900px) {

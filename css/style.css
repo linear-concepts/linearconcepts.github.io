@@ -36,6 +36,7 @@ header {
   width: 100%;
   height: 100px;
   background: transparent;
+  pointer-events: none;
   z-index: 1000;
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -73,7 +74,8 @@ header {
     align-items: center;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    pointer-events: all; }
     header .links .link {
       position: relative;
       margin: 0px 4px;
@@ -245,7 +247,7 @@ nav {
   margin: auto; }
 
 section {
-  padding: 60px 0px;
+  padding: 50px 0px;
   width: 100%;
   background: #000; }
 
@@ -263,39 +265,79 @@ section.white {
 
 @-webkit-keyframes slideshow {
   0% {
-    left: 0%; }
+    left: 0%;
+    -webkit-transform-origin: 12.5% 50%;
+    transform-origin: 12.5% 50%; }
   20% {
-    left: 0%; }
+    left: 0%;
+    -webkit-transform-origin: 12.5% 50%;
+    transform-origin: 12.5% 50%; }
   25% {
-    left: -100%; }
+    left: -100%;
+    -webkit-transform-origin: 37.5% 50%;
+    transform-origin: 37.5% 50%; }
   45% {
-    left: -100%; }
+    left: -100%;
+    -webkit-transform-origin: 37.5% 50%;
+    transform-origin: 37.5% 50%; }
   50% {
-    left: -200%; }
+    left: -200%;
+    -webkit-transform-origin: 62.5% 50%;
+    transform-origin: 62.5% 50%; }
   70% {
-    left: -200%; }
+    left: -200%;
+    -webkit-transform-origin: 62.5% 50%;
+    transform-origin: 62.5% 50%; }
   75% {
-    left: -300%; }
+    left: -300%;
+    -webkit-transform-origin: 87.5% 50%;
+    transform-origin: 87.5% 50%; }
   95% {
-    left: -300%; } }
+    left: -300%;
+    -webkit-transform-origin: 87.5% 50%;
+    transform-origin: 87.5% 50%; }
+  100% {
+    left: 0%;
+    -webkit-transform-origin: 12.5% 50%;
+    transform-origin: 12.5% 50%; } }
 
 @keyframes slideshow {
   0% {
-    left: 0%; }
+    left: 0%;
+    -webkit-transform-origin: 12.5% 50%;
+    transform-origin: 12.5% 50%; }
   20% {
-    left: 0%; }
+    left: 0%;
+    -webkit-transform-origin: 12.5% 50%;
+    transform-origin: 12.5% 50%; }
   25% {
-    left: -100%; }
+    left: -100%;
+    -webkit-transform-origin: 37.5% 50%;
+    transform-origin: 37.5% 50%; }
   45% {
-    left: -100%; }
+    left: -100%;
+    -webkit-transform-origin: 37.5% 50%;
+    transform-origin: 37.5% 50%; }
   50% {
-    left: -200%; }
+    left: -200%;
+    -webkit-transform-origin: 62.5% 50%;
+    transform-origin: 62.5% 50%; }
   70% {
-    left: -200%; }
+    left: -200%;
+    -webkit-transform-origin: 62.5% 50%;
+    transform-origin: 62.5% 50%; }
   75% {
-    left: -300%; }
+    left: -300%;
+    -webkit-transform-origin: 87.5% 50%;
+    transform-origin: 87.5% 50%; }
   95% {
-    left: -300%; } }
+    left: -300%;
+    -webkit-transform-origin: 87.5% 50%;
+    transform-origin: 87.5% 50%; }
+  100% {
+    left: 0%;
+    -webkit-transform-origin: 12.5% 50%;
+    transform-origin: 12.5% 50%; } }
 
 section.image-slide {
   position: relative;
@@ -303,7 +345,7 @@ section.image-slide {
   padding: 0px;
   height: 100vh;
   background-color: #111;
-  overflow-x: hidden; }
+  overflow: hidden; }
   section.image-slide .slider {
     position: absolute;
     top: 0;
@@ -313,17 +355,19 @@ section.image-slide {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
     -webkit-animation: slideshow 15s infinite;
-    animation: slideshow 15s infinite; }
+    animation: slideshow 15s infinite;
+    -webkit-transform-origin: 50% 0;
+    -ms-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transform: translate(0, 0) scale(1.1);
+    -ms-transform: translate(0, 0) scale(1.1);
+    transform: translate(0, 0) scale(1.1); }
     section.image-slide .slider .slide {
       width: 25%;
       height: 100%; }
     section.image-slide .slider .slide:nth-child(1) {
-      background-image: url("../img/The Leaf House/Image 13.jpg");
+      background-image: url("../img/The Leaf House/Image 5.jpg");
       background-size: cover;
       background-position: center center; }
     section.image-slide .slider .slide:nth-child(2) {
@@ -351,7 +395,7 @@ section.image-slide {
     background: -o-linear-gradient(bottom, black, rgba(0, 0, 0, 0));
     background: linear-gradient(to top, black, rgba(0, 0, 0, 0)); }
   section.image-slide .slider:after {
-    background: rgba(0, 0, 0, 0.2); }
+    background: rgba(0, 0, 0, 0.25); }
   section.image-slide .content {
     position: absolute;
     top: 50%;
@@ -359,6 +403,11 @@ section.image-slide {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
+    section.image-slide .content h1,
+    section.image-slide .content h5 {
+      position: relative;
+      top: 0;
+      left: 0; }
 
 h1,
 h2,
@@ -478,6 +527,60 @@ button:hover:after {
   height: 100%;
   width: 100%;
   border-radius: 0px; }
+
+.sm {
+  font-size: 0.8em; }
+
+p a {
+  padding-bottom: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
+
+p a:hover {
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+
+footer {
+  padding: 20px 0px;
+  background: #000; }
+  footer .content-lg {
+    border-top: 1px solid #111;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  footer p.sm {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.7em;
+    width: 50%; }
+    footer p.sm .fas {
+      font-size: 0.75em; }
+  footer .socials {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    color: #fff; }
+    footer .socials a {
+      margin: 15px;
+      font-size: 1.25em;
+      cursor: pointer;
+      -webkit-transition: all 0.25s ease;
+      -moz-transition: all 0.25s ease;
+      -o-transition: all 0.25s ease;
+      transition: all 0.25s ease; }
+    footer .socials a:hover {
+      color: #c7a766 !important; }
 
 @media only screen and (max-width: 900px) {
   .content {
