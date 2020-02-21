@@ -3,7 +3,7 @@
 $primary-font: "Quicksand", sans-serif;
 $secondary-font: "Playfair Display", serif;
 $primary-color: #c7a766;
-$header-height: 100px;
+$header-height: 70px;
 
 @mixin transition($time) {
   -webkit-transition: all$time ease;
@@ -22,7 +22,7 @@ $header-height: 100px;
 ::-webkit-scrollbar {
   width: 12px;
   height: 5px;
-  background: #000;
+  background: #fff;
 }
 ::-webkit-scrollbar-thumb {
   height: 6px;
@@ -49,7 +49,7 @@ $header-height: 100px;
 body {
   margin: 0px;
   font-family: $primary-font;
-  background-color: #000;
+  background-color: #fff;
 }
 
 a {
@@ -63,7 +63,8 @@ header {
   left: 0;
   width: 100%;
   height: $header-height;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
   pointer-events: none;
   z-index: 1000;
   @include transition(0.4s);
@@ -218,7 +219,8 @@ nav {
   position: fixed;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
   display: none;
   opacity: 0;
   z-index: 999;
@@ -280,11 +282,11 @@ nav {
 section {
   padding: 50px 0px;
   width: 100%;
-  background: #000;
+  background: #fff;
 }
 
 section.intro {
-  padding-top: 200px;
+  padding-top: 150px;
 }
 
 section.grey {
@@ -394,11 +396,15 @@ section.image-slide {
     content: "";
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, black, rgba(0, 0, 0, 0));
+    /* background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0)
+    ); */
   }
 
   .slider:after {
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.4);
   }
 
   .content {
@@ -409,6 +415,7 @@ section.image-slide {
 
     h1,
     h5 {
+      color: #fff;
       position: relative;
       top: 0;
       left: 0;
@@ -423,7 +430,7 @@ h4,
 h5,
 h6 {
   font-family: $secondary-font;
-  color: #fff;
+  color: #000;
   font-weight: 400;
   margin: 10px 0px;
   line-height: 1.1;
@@ -437,8 +444,8 @@ h5.lite,
 h6.lite {
   text-transform: uppercase;
   font-family: $primary-font;
-  color: #fff;
-  font-weight: 300;
+  color: #000;
+  font-weight: 400;
   letter-spacing: 4px;
 }
 
@@ -471,7 +478,7 @@ h6 {
 }
 
 p {
-  color: #fff;
+  color: #111;
   margin: 20px 0px;
   line-height: 1.75;
   font-size: 1em;
@@ -559,16 +566,16 @@ p {
 
 footer {
   padding: 20px 0px;
-  background: #000;
+  background: #fff;
 
   .content-lg {
-    border-top: 1px solid #111;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
   }
 
   p.sm {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(0, 0, 0, 0.75);
     font-size: 0.7em;
     width: 50%;
 
@@ -581,7 +588,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    color: #fff;
+    color: #000;
 
     a {
       margin: 15px;
@@ -658,6 +665,6 @@ footer {
   }
 
   section.intro {
-    padding-top: 150px;
+    padding-top: 120px;
   }
 }

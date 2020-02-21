@@ -1,16 +1,16 @@
 $(document).ready(function() {
   let navToggle = false;
 
-  $(window).scroll(function() {
-    let i = $(window).scrollTop();
-    if (i > 0) {
-      $("header").css("background", "#000");
-      $("header").css("height", "70px");
-    } else {
-      $("header").css("background", "transparent");
-      $("header").css("height", "100px");
-    }
-  });
+  // $(window).scroll(function() {
+  //   let i = $(window).scrollTop();
+  //   if (i > 0) {
+  //     $("header").css("background", "#000");
+  //     $("header").css("height", "70px");
+  //   } else {
+  //     $("header").css("background", "transparent");
+  //     $("header").css("height", "100px");
+  //   }
+  // });
 
   function openNav() {
     $("nav").css("display", "block");
@@ -18,6 +18,7 @@ $(document).ready(function() {
       $("nav").css("opacity", "1");
     }, 100);
     $(".hamburger").addClass("close");
+    $("header").css("background", "transparent");
     navToggle = true;
   }
 
@@ -27,6 +28,7 @@ $(document).ready(function() {
       $("nav").css("display", "none");
     }, 500);
     $(".hamburger").removeClass("close");
+    $("header").css("background", "rgba(0,0,0,0.65)");
     navToggle = false;
   }
 

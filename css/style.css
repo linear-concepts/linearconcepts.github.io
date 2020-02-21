@@ -2,7 +2,7 @@
 ::-webkit-scrollbar {
   width: 12px;
   height: 5px;
-  background: #000; }
+  background: #fff; }
 
 ::-webkit-scrollbar-thumb {
   height: 6px;
@@ -29,7 +29,7 @@
 body {
   margin: 0px;
   font-family: "Quicksand", sans-serif;
-  background-color: #000; }
+  background-color: #fff; }
 
 a {
   color: inherit !important;
@@ -40,8 +40,10 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
-  background: transparent;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.65);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   pointer-events: none;
   z-index: 1000;
   -webkit-transition: all 0.4s ease;
@@ -202,7 +204,9 @@ nav {
   position: fixed;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.65);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   display: none;
   opacity: 0;
   z-index: 999;
@@ -258,10 +262,10 @@ nav {
 section {
   padding: 50px 0px;
   width: 100%;
-  background: #000; }
+  background: #fff; }
 
 section.intro {
-  padding-top: 200px; }
+  padding-top: 150px; }
 
 section.grey {
   background-color: #111; }
@@ -350,7 +354,7 @@ section.white {
 
 section.image-slide {
   position: relative;
-  padding-top: 100px;
+  padding-top: 70px;
   padding: 0px;
   height: 100vh;
   background-color: #111;
@@ -399,12 +403,13 @@ section.image-slide {
     content: "";
     width: 100%;
     height: 100%;
-    background: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(0, 0, 0, 0)));
-    background: -webkit-linear-gradient(bottom, black, rgba(0, 0, 0, 0));
-    background: -o-linear-gradient(bottom, black, rgba(0, 0, 0, 0));
-    background: linear-gradient(to top, black, rgba(0, 0, 0, 0)); }
+    /* background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0)
+    ); */ }
   section.image-slide .slider:after {
-    background: rgba(0, 0, 0, 0.25); }
+    background: rgba(0, 0, 0, 0.4); }
   section.image-slide .content {
     position: absolute;
     top: 50%;
@@ -414,6 +419,7 @@ section.image-slide {
     transform: translate(-50%, -50%); }
     section.image-slide .content h1,
     section.image-slide .content h5 {
+      color: #fff;
       position: relative;
       top: 0;
       left: 0; }
@@ -425,7 +431,7 @@ h4,
 h5,
 h6 {
   font-family: "Playfair Display", serif;
-  color: #fff;
+  color: #000;
   font-weight: 400;
   margin: 10px 0px;
   line-height: 1.1; }
@@ -438,8 +444,8 @@ h5.lite,
 h6.lite {
   text-transform: uppercase;
   font-family: "Quicksand", sans-serif;
-  color: #fff;
-  font-weight: 300;
+  color: #000;
+  font-weight: 400;
   letter-spacing: 4px; }
 
 .center {
@@ -464,7 +470,7 @@ h6 {
   font-size: 1.25em; }
 
 p {
-  color: #fff;
+  color: #111;
   margin: 20px 0px;
   line-height: 1.75;
   font-size: 1em;
@@ -554,9 +560,9 @@ p a:hover {
 
 footer {
   padding: 20px 0px;
-  background: #000; }
+  background: #fff; }
   footer .content-lg {
-    border-top: 1px solid #111;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -564,7 +570,7 @@ footer {
     -ms-flex-pack: justify;
     justify-content: space-between; }
   footer p.sm {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(0, 0, 0, 0.75);
     font-size: 0.7em;
     width: 50%; }
     footer p.sm .fas {
@@ -579,7 +585,7 @@ footer {
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end;
-    color: #fff; }
+    color: #000; }
     footer .socials a {
       margin: 15px;
       font-size: 1.25em;
@@ -623,4 +629,4 @@ footer {
   section {
     padding: 30px 0px; }
   section.intro {
-    padding-top: 150px; } }
+    padding-top: 120px; } }
