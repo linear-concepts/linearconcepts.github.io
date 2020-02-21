@@ -63,11 +63,11 @@ header {
   left: 0;
   width: 100%;
   height: $header-height;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(10px);
+  background: transparent;
   pointer-events: none;
   z-index: 1000;
-  @include transition(0.4s);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  @include transition(0.5s);
 
   .content-lg {
     display: flex;
@@ -77,11 +77,17 @@ header {
   }
 
   .logo {
-    height: 50%;
+    height: calc(100% - 10px);
+    padding: 5px 25px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
     @include transition(0.4s);
 
     img {
-      height: 100%;
+      position: relative;
+      top: 50%;
+      transform: translate(0%, -50%);
+      height: 60%;
       @include transition(0.4s);
     }
   }
@@ -94,19 +100,19 @@ header {
 
     .link {
       position: relative;
-      margin: 0px 4px;
-      padding: 8px 4px;
+      padding: 8px 0px;
       cursor: pointer;
       @include transition(0.2s);
 
       .title {
         position: relative;
-        font-weight: 600;
+        font-weight: 500;
         color: rgba(255, 255, 255, 0.75);
-        font-size: 0.8em;
-        padding: 4px 2px;
-        text-transform: capitalize;
-        letter-spacing: 1px;
+        font-size: 0.65em;
+        padding: 29px 18px;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        text-transform: uppercase;
+        letter-spacing: 2px;
         text-decoration: none;
       }
 
@@ -133,7 +139,7 @@ header {
         border-radius: 4px;
         opacity: 0;
         pointer-events: none;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
         @include transition(0.2s);
 
         .menu-item {
@@ -166,35 +172,41 @@ header {
     .link.current .title:before {
       width: 100%;
     }
+
+    .link:last-of-type .title {
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
   }
 
   .hamburger {
     display: none;
     position: relative;
-    width: 25px;
-    height: 15px;
+    width: 60px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    height: $header-height;
     z-index: 1002;
     cursor: pointer;
     pointer-events: all;
 
     .line-1 {
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 3px;
-      border-radius: 3px;
+      top: calc(50% - 5px);
+      left: 50%;
+      width: 40%;
+      height: 2px;
+      transform: translate(-50%, 0);
       background: #fff;
       @include smoothtransition(0.25s);
     }
 
     .line-2 {
       position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 3px;
-      border-radius: 3px;
+      top: calc(50% + 5px);
+      left: 50%;
+      width: 40%;
+      height: 2px;
+      transform: translate(-50%, 0);
       background: #fff;
       @include smoothtransition(0.25s);
     }
@@ -202,12 +214,56 @@ header {
 
   .hamburger.close {
     .line-1 {
-      transform: translate(0, 6px) rotate(45deg);
+      transform: translate(-50%, 5px) rotate(45deg);
     }
 
     .line-2 {
-      transform: translate(0, -6px) rotate(-45deg);
+      transform: translate(-50%, -5px) rotate(-45deg);
     }
+  }
+
+  .fill {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+    @include smoothtransition(0.4s);
+  }
+}
+
+header.dark {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  // box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+  .links {
+    .link {
+      .title {
+        color: rgba(0, 0, 0, 0.75);
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+    .link:last-of-type .title {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .link:hover > .title,
+    .link.current > .title {
+      color: #000;
+    }
+  }
+
+  .hamburger {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    .line-1,
+    .line-2 {
+      background: #000;
+    }
+  }
+  .fill {
+    top: 0%;
   }
 }
 
@@ -219,7 +275,7 @@ nav {
   position: fixed;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(10px);
   display: none;
   opacity: 0;
@@ -388,7 +444,6 @@ section.image-slide {
     }
   }
 
-  .slider:before,
   .slider:after {
     position: absolute;
     top: 0;
@@ -396,15 +451,10 @@ section.image-slide {
     content: "";
     width: 100%;
     height: 100%;
-    /* background: linear-gradient(
-      to top,
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0)
-    ); */
   }
 
   .slider:after {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
   }
 
   .content {
@@ -414,7 +464,7 @@ section.image-slide {
     transform: translate(-50%, -50%);
 
     h1,
-    h5 {
+    h6 {
       color: #fff;
       position: relative;
       top: 0;
@@ -445,8 +495,8 @@ h6.lite {
   text-transform: uppercase;
   font-family: $primary-font;
   color: #000;
-  font-weight: 400;
-  letter-spacing: 4px;
+  font-weight: 300;
+  letter-spacing: 5px;
 }
 
 .center {
@@ -454,27 +504,27 @@ h6.lite {
 }
 
 h1 {
-  font-size: 3.25em;
+  font-size: 4em;
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 3.25em;
 }
 
 h3 {
-  font-size: 2.5em;
+  font-size: 2.75em;
 }
 
 h4 {
-  font-size: 2em;
+  font-size: 2.25em;
 }
 
 h5 {
-  font-size: 1.5em;
+  font-size: 1.75em;
 }
 
 h6 {
-  font-size: 1.25em;
+  font-size: 1.5em;
 }
 
 p {

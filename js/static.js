@@ -1,16 +1,14 @@
 function generateLinks(page) {
   const innerHTML = `<div class="links">
-    <a href="${page == "home" ? "./" : "../"}"><div class="link ${
-    page == "home" ? "current" : ""
-  }">
-      <div class="title">Home</div>
-      </div></a>
+    <div class="link ${page == "home" ? "current" : ""}">
+  <a href="${page == "home" ? "./" : "../"}"><div class="title">Home</div></a>
+      </div>
       <div class="link ${page == "about" || page == "team" ? "current" : ""}">
         <div class="title">About</div>
         <div class="menu">
-        <a href="${
+        <!--<a href="${
           page == "home" ? "./" : "../"
-        }about"><div class="menu-item">About Us</div></a>
+        }about">--><div class="menu-item">About Us</div><!--</a>-->
           <div class="menu-item">Our Team</div>
         </div>
       </div>
@@ -40,6 +38,7 @@ function generateHeader(page) {
             <div class="line-1"></div>
             <div class="line-2"></div>
         </div>
+        <div class="fill"></div>
     </div>
     `;
   return headerHTML;
