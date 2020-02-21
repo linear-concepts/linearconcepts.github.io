@@ -29,7 +29,7 @@ $header-height: 70px;
   border: 3px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
   -webkit-border-radius: 7px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 ::-webkit-scrollbar-button {
   width: 0;
@@ -144,7 +144,7 @@ header {
 
         .menu-item {
           font-weight: 600;
-          text-transform: capitalize;
+          text-transform: uppercase;
           letter-spacing: 1px;
           color: rgba(0, 0, 0, 0.75);
           font-size: 0.7em;
@@ -358,6 +358,18 @@ section.white {
   background-color: #fff;
 }
 
+section.landing-about {
+  padding-top: 0px;
+  background: #edeceb;
+
+  .content {
+    position: relative;
+    top: -40px;
+    padding: 50px 75px;
+    background: #fff;
+  }
+}
+
 @keyframes slideshow {
   0% {
     left: 0%;
@@ -455,7 +467,7 @@ section.image-slide {
   }
 
   .slider:after {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
   }
 
   .content {
@@ -534,6 +546,7 @@ p {
   line-height: 1.75;
   font-size: 1em;
   font-weight: 400;
+  text-align: justify;
 }
 
 p.lg {
@@ -654,33 +667,33 @@ footer {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .content {
     width: 70%;
   }
 
   h1 {
-    font-size: 3em;
+    font-size: 3.25em;
   }
 
   h2 {
-    font-size: 2.5em;
+    font-size: 2.75em;
   }
 
   h3 {
-    font-size: 2.25em;
+    font-size: 2.5em;
   }
 
   h4 {
-    font-size: 1.75em;
+    font-size: 2em;
   }
 
   h5 {
-    font-size: 1.25em;
+    font-size: 1.5em;
   }
 
   h6 {
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
 
   p.lg {
@@ -693,6 +706,18 @@ footer {
 
   section {
     padding: 40px 0px;
+  }
+
+  section.landing-about {
+    padding-top: 0px;
+    background: #edeceb;
+
+    .content {
+      position: relative;
+      top: -20px;
+      padding: 30px 60px;
+      background: #fff;
+    }
   }
 }
 
@@ -717,5 +742,16 @@ footer {
 
   section.intro {
     padding-top: 120px;
+  }
+
+  section.landing-about {
+    padding-top: 30px;
+    background: #fff;
+
+    .content {
+      position: relative;
+      top: 0px;
+      padding: 0px;
+    }
   }
 }
