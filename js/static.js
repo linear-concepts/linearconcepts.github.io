@@ -1,5 +1,5 @@
 let navToggle = false;
-let scrollHeader = true;
+let scrollHeaderFlag = true;
 
 function generateLinks(page) {
   const innerHTML = `<div class="links">
@@ -63,27 +63,35 @@ function generateFooter() {
 function fixHeader() {
   $("header").addClass("dark");
   $("header .logo img").attr("src", "../img/LCLogoBlack.svg");
-  scrollHeader = false;
+  scrollHeaderFlag = false;
 }
 
 function headerScroll(page) {
-  let i = $(window).scrollTop();
-  if (i > 25) {
+  if (scrollHeaderFlag) {
+    let i = $(window).scrollTop();
+    if (i > 25) {
+      $("header").addClass("dark");
+      $("header .logo img").attr(
+        "src",
+        `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
+      );
+    } else {
+      $("header").removeClass("dark");
+      $("header .logo img").attr(
+        "src",
+        `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
+      );
+    }
+  } else {
     $("header").addClass("dark");
     $("header .logo img").attr(
       "src",
       `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
     );
-  } else {
-    $("header").removeClass("dark");
-    $("header .logo img").attr(
-      "src",
-      `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
-    );
   }
 }
 
-function openNav() {
+function openNav(page) {
   $("nav").css("display", "block");
   setTimeout(function() {
     $("nav").css("opacity", "1");
@@ -103,7 +111,7 @@ function closeNav() {
     $("nav").css("display", "none");
   }, 500);
   $(".hamburger").removeClass("close");
-
+  headerScroll();
   navToggle = false;
 }
 
@@ -117,7 +125,7 @@ $(document).ready(function() {
   }
 
   $(window).scroll(function() {
-    if (scrollHeader && !navToggle) {
+    if (!navToggle) {
       headerScroll(page);
     }
   });
@@ -126,7 +134,7 @@ $(document).ready(function() {
     if (navToggle) {
       closeNav();
     } else {
-      openNav();
+      openNav(page);
     }
   });
 });
