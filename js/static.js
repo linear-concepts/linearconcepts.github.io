@@ -111,7 +111,7 @@ function closeNav() {
     $("nav").css("display", "none");
   }, 500);
   $(".hamburger").removeClass("close");
-  headerScroll();
+  headerScroll(page);
   navToggle = false;
 }
 
