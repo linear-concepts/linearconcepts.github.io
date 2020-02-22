@@ -105,7 +105,7 @@ function openNav(page) {
   navToggle = true;
 }
 
-function closeNav() {
+function closeNav(page) {
   $("nav").css("opacity", "0");
   setTimeout(function() {
     $("nav").css("display", "none");
@@ -132,7 +132,7 @@ $(document).ready(function() {
 
   $("header").on("click", ".hamburger", function() {
     if (navToggle) {
-      closeNav();
+      closeNav(page);
     } else {
       openNav(page);
     }
