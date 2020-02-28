@@ -1,9 +1,13 @@
 /*Mixins and Essentials*/
 
-$primary-font: "Quicksand", sans-serif;
-$secondary-font: "Playfair Display", serif;
-$primary-color: #c7a766;
+$primary-font: "Montserrat", sans-serif;
+$secondary-font: "FaktPro", sans-serif;
+$primary-color: #000;
+$secondary-color: #bbafa9;
+$primary-color-highlight: rgba(0, 0, 0, 0.1);
 $header-height: 70px;
+$text-dark: #000;
+$text: rgb(51, 51, 51);
 
 @mixin transition($time) {
   -webkit-transition: all$time ease;
@@ -41,7 +45,7 @@ $header-height: 70px;
 }
 
 ::selection {
-  background: #c7a76688;
+  background: #c4bdb188;
 }
 
 /*Body*/
@@ -66,7 +70,6 @@ header {
   background: transparent;
   pointer-events: none;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   @include transition(0.5s);
 
   .content-lg {
@@ -77,10 +80,8 @@ header {
   }
 
   .logo {
-    height: calc(100% - 10px);
-    padding: 5px 25px;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    height: calc(100% - 5px);
+    padding: 3px 0px;
     @include transition(0.4s);
 
     img {
@@ -100,20 +101,20 @@ header {
 
     .link {
       position: relative;
-      padding: 8px 0px;
+      padding: 5px 0px;
       cursor: pointer;
       @include transition(0.2s);
 
       .title {
         position: relative;
-        font-weight: 500;
+        font-weight: 400;
         color: rgba(255, 255, 255, 0.75);
-        font-size: 0.65em;
-        padding: 29px 18px;
-        border-left: 1px solid rgba(255, 255, 255, 0.1);
-        text-transform: uppercase;
-        letter-spacing: 2px;
+        font-size: 0.9em;
+        padding: 3px 2px;
+        margin: 0px 10px;
+        padding-bottom: 4px;
         text-decoration: none;
+        z-index: 1000;
       }
 
       .title:before {
@@ -123,7 +124,7 @@ header {
         left: 50%;
         height: 2px;
         width: 0%;
-        background: $primary-color;
+        background: #fff;
         z-index: -1;
         transform: translate(-50%, -50%);
         @include smoothtransition(0.2s);
@@ -134,32 +135,32 @@ header {
         top: 100%;
         left: -5px;
         width: 120px;
-        background: #fff;
+        background: #eee;
         padding: 4px 0px;
-        border-radius: 4px;
+        border-radius: 2px;
         opacity: 0;
         pointer-events: none;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
         @include transition(0.2s);
 
         .menu-item {
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 1px;
           color: rgba(0, 0, 0, 0.75);
-          font-size: 0.7em;
+          font-size: 0.8em;
           padding: 5px 15px;
+          padding-bottom: 4px;
           @include transition(0.2s);
         }
 
         .menu-item:hover {
-          background: rgba(0, 0, 0, 0.1);
+          background: $primary-color-highlight;
         }
       }
     }
 
     .link:hover > .title,
-    .link.current > .title {
+    .link.current > .title,
+    .link:hover > a .title,
+    .link.current > a .title {
       color: #fff;
     }
 
@@ -169,12 +170,10 @@ header {
     }
 
     .link:hover > .title:before,
-    .link.current .title:before {
+    .link.current .title:before,
+    .link:hover > a .title:before,
+    .link.current a .title:before {
       width: 100%;
-    }
-
-    .link:last-of-type .title {
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
   }
 
@@ -182,8 +181,6 @@ header {
     display: none;
     position: relative;
     width: 60px;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
     height: $header-height;
     z-index: 1002;
     cursor: pointer;
@@ -229,34 +226,30 @@ header {
     width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 1);
-    backdrop-filter: blur(10px);
     z-index: -1;
     @include smoothtransition(0.4s);
   }
 }
 
 header.dark {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  // box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
   .links {
     .link {
       .title {
         color: rgba(0, 0, 0, 0.75);
-        border-left: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .title:before {
+        background: #000;
       }
     }
-    .link:last-of-type .title {
-      border-right: 1px solid rgba(0, 0, 0, 0.1);
-    }
     .link:hover > .title,
-    .link.current > .title {
+    .link.current > .title,
+    .link:hover > a .title,
+    .link.current > a .title {
       color: #000;
     }
   }
 
   .hamburger {
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
     .line-1,
     .line-2 {
       background: #000;
@@ -293,7 +286,7 @@ nav {
     .link {
       margin: 10px 0px;
       text-align: center;
-      font-family: $secondary-font;
+      font-family: $primary-font;
 
       .title {
         position: relative;
@@ -307,16 +300,15 @@ nav {
         content: "";
         position: absolute;
         top: 100%;
-        width: 5px;
-        height: 5px;
-        border-radius: 100%;
+        width: 100%;
+        height: 1px;
         left: 50%;
         transform: translate(-50%, 0);
-        background: $primary-color;
+        background: rgba(255, 255, 255, 0.5);
       }
 
       .menu-item {
-        font-family: $primary-font;
+        font-family: $secondary-font;
         font-weight: 300;
         margin: 15px 0px;
         letter-spacing: 2px;
@@ -331,6 +323,25 @@ nav {
   margin: 0 auto;
 }
 
+.split-container {
+  display: flex;
+  align-items: flex-start;
+
+  .split {
+    width: calc(50% - 60px);
+    padding: 30px;
+  }
+}
+
+.split-container.s-40-60 {
+  .split:nth-child(1) {
+    width: calc(40% - 40px);
+  }
+  .split:nth-child(2) {
+    width: calc(60% - 40px);
+  }
+}
+
 .content {
   width: 50%;
   margin: auto;
@@ -343,11 +354,15 @@ section {
 }
 
 section.intro {
-  padding-top: 150px;
+  padding-top: 120px;
 }
 
-section.grey {
-  background-color: #111;
+section.fix-space-bottom {
+  padding-bottom: 25px;
+}
+
+section.fix-space-top {
+  padding-top: 25px;
 }
 
 section.color {
@@ -356,6 +371,31 @@ section.color {
 
 section.white {
   background-color: #fff;
+}
+
+section.black {
+  background-color: #000;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #fff;
+  }
+
+  button {
+    background: #151515;
+  }
+
+  p {
+    color: #ddd;
+  }
+
+  hr {
+    border: 2px solid #fff;
+  }
 }
 
 section.landing-about {
@@ -423,7 +463,7 @@ section.image-slide {
     height: 100%;
     width: 400%;
     display: flex;
-    animation: slideshow 15s infinite;
+    animation: slideshow 20s infinite;
     transform-origin: 50% 0;
     transform: translate(0, 0) scale(1.1);
 
@@ -467,7 +507,7 @@ section.image-slide {
   }
 
   .slider:after {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.4);
   }
 
   .content {
@@ -477,7 +517,7 @@ section.image-slide {
     transform: translate(-50%, -50%);
 
     h1,
-    h6 {
+    h5 {
       color: #fff;
       position: relative;
       top: 0;
@@ -492,9 +532,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $secondary-font;
-  color: #000;
-  font-weight: 400;
+  font-family: $primary-font;
+  color: $text-dark;
+  font-weight: 600;
   margin: 10px 0px;
   line-height: 1.1;
 }
@@ -506,10 +546,19 @@ h4.lite,
 h5.lite,
 h6.lite {
   text-transform: uppercase;
-  font-family: $primary-font;
+  font-family: $secondary-font;
   color: #000;
   font-weight: 300;
   letter-spacing: 5px;
+}
+
+.text-light {
+  font-family: $secondary-font;
+  font-weight: 300;
+}
+
+.text-bold {
+  font-weight: 500;
 }
 
 .center {
@@ -517,19 +566,19 @@ h6.lite {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 3.5em;
 }
 
 h2 {
-  font-size: 3.25em;
+  font-size: 3em;
 }
 
 h3 {
-  font-size: 2.75em;
+  font-size: 2.3em;
 }
 
 h4 {
-  font-size: 2.25em;
+  font-size: 2em;
 }
 
 h5 {
@@ -541,12 +590,13 @@ h6 {
 }
 
 p {
-  color: #111;
+  color: $text;
   margin: 20px 0px;
   line-height: 1.75;
-  font-size: 1em;
+  font-size: 0.95em;
   font-weight: 400;
-  text-align: justify;
+  // text-align: justify;
+  font-family: $secondary-font;
 }
 
 p.lg {
@@ -554,8 +604,8 @@ p.lg {
 }
 
 hr {
-  width: 50px;
-  border: 1px solid $primary-color;
+  width: 40px;
+  border: 2px solid $primary-color;
   margin: 20px 0px;
   margin-left: 0;
 }
@@ -563,52 +613,39 @@ hr {
 button {
   position: relative;
   background: $primary-color;
-  padding: 14px 20px;
-  margin: 20px 0px;
+  padding: 14px 24px;
+  margin: 10px 0px;
   cursor: pointer;
   color: #fff;
   outline: none;
+  font-weight: 500;
   border: none;
   border-radius: 0;
   z-index: 10;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.75em;
-  font-weight: 500;
+  font-family: $primary-font;
+  font-size: 0.9em;
+  overflow: hidden;
   @include smoothtransition(0.25s);
-}
 
-button:before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 6px;
-  left: 6px;
-  background: $primary-color;
-  opacity: 0.25;
-  z-index: -1;
-  @include transition(0.4s);
+  .fas {
+    margin-left: 5px;
+  }
 }
 
 button:after {
   content: "";
   position: absolute;
-  height: 0%;
-  width: 0%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0%;
+  left: -100%;
+  height: 100%;
+  width: 100%;
   background: #fff;
   opacity: 0.25;
-  border-radius: 10px;
-  @include smoothtransition(0.2s);
+  @include smoothtransition(0.4s);
 }
 
 button:hover:after {
-  height: 100%;
-  width: 100%;
-  border-radius: 0px;
+  left: 0;
 }
 
 .sm {
@@ -625,6 +662,49 @@ p {
   a:hover {
     cursor: pointer;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  }
+}
+
+.cards-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .card {
+    width: calc(50% - 20px);
+    height: 175px;
+    margin: 10px;
+    background-color: $secondary-color;
+  }
+
+  .card-full {
+    width: 100%;
+  }
+
+  .card:nth-child(5) {
+    background-image: url("../img/AV House/LC_AV (13 of 20).jpg");
+    background-size: cover;
+    background-position: center center;
+  }
+  .card:nth-child(2) {
+    background-image: url("../img/Linen Vogue/5.jpg");
+    background-size: cover;
+    background-position: center center;
+  }
+  .card:nth-child(3) {
+    background-image: url("../img/Osho House/Babbar's Residence-14.jpg");
+    background-size: cover;
+    background-position: center center;
+  }
+  .card:nth-child(4) {
+    background-image: url("../img/Satyasheel/4.jpg");
+    background-size: cover;
+    background-position: center center;
+  }
+  .card:nth-child(1) {
+    background-image: url("../img/The Leaf House/Image 20.jpg");
+    background-size: cover;
+    background-position: center center;
   }
 }
 
@@ -681,11 +761,11 @@ footer {
   }
 
   h3 {
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
   h4 {
-    font-size: 2em;
+    font-size: 1.75em;
   }
 
   h5 {
@@ -708,6 +788,14 @@ footer {
     padding: 40px 0px;
   }
 
+  section.fix-space-bottom {
+    padding-bottom: 20px;
+  }
+
+  section.fix-space-top {
+    padding-top: 20px;
+  }
+
   section.landing-about {
     padding-top: 0px;
     background: #edeceb;
@@ -719,11 +807,59 @@ footer {
       background: #fff;
     }
   }
+
+  .split-container,
+  .split-container.s-40-60 {
+    display: block;
+
+    .split {
+      width: 100% !important;
+      padding: 0px !important;
+    }
+  }
+
+  .cards-container {
+    margin: 20px 0px;
+
+    .card {
+      height: 160px;
+      width: calc(50% - 10px);
+      margin: 5px;
+    }
+
+    .card-full {
+      width: 100%;
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {
   .content {
     width: 85%;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 2.2em;
+  }
+
+  h3 {
+    font-size: 1.7em;
+  }
+
+  h4 {
+    font-size: 1.4em;
+  }
+
+  h5 {
+    font-size: 1.2em;
+  }
+
+  h6 {
+    font-size: 1em;
   }
 
   header {
@@ -740,6 +876,14 @@ footer {
     padding: 30px 0px;
   }
 
+  section.fix-space-bottom {
+    padding-bottom: 15px;
+  }
+
+  section.fix-space-top {
+    padding-top: 15px;
+  }
+
   section.intro {
     padding-top: 120px;
   }
@@ -752,6 +896,17 @@ footer {
       position: relative;
       top: 0px;
       padding: 0px;
+    }
+  }
+
+  .cards-container {
+    .card {
+      height: 120px;
+      width: calc(50% - 10px);
+      margin: 5px;
+    }
+    .card-full {
+      width: 100%;
     }
   }
 }

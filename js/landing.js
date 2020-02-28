@@ -15,11 +15,11 @@ $(document).ready(function() {
       );
       $("section.image-slide .content h5").css(
         "top",
-        ` ${(e.clientY - h) / 40}px`
+        ` ${(e.clientY - h) / 50}px`
       );
       $("section.image-slide .content h5").css(
         "left",
-        `${(e.clientX - w) / 40}px`
+        `${(e.clientX - w) / 50}px`
       );
       $("section.image-slide .slider").css(
         "transform",
