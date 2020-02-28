@@ -1,5 +1,6 @@
 let navToggle = false;
 let scrollHeaderFlag = true;
+let headerWhite = false;
 
 function generateLinks(page) {
   const innerHTML = `<div class="links">
@@ -70,24 +71,33 @@ function headerScroll(page) {
   if (scrollHeaderFlag) {
     let i = $(window).scrollTop();
     if (i > 25) {
+      if (!headerWhite) {
+        $("header").addClass("dark");
+        $("header .logo img").attr(
+          "src",
+          `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
+        );
+        headerWhite = true;
+      }
+    } else {
+      if (headerWhite) {
+        $("header").removeClass("dark");
+        $("header .logo img").attr(
+          "src",
+          `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
+        );
+        headerWhite = false;
+      }
+    }
+  } else {
+    if (!headerWhite) {
       $("header").addClass("dark");
       $("header .logo img").attr(
         "src",
         `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
       );
-    } else {
-      $("header").removeClass("dark");
-      $("header .logo img").attr(
-        "src",
-        `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
-      );
+      headerWhite = true;
     }
-  } else {
-    $("header").addClass("dark");
-    $("header .logo img").attr(
-      "src",
-      `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
-    );
   }
 }
 
@@ -121,6 +131,7 @@ $(document).ready(function() {
   $("nav").html(generateLinks(page));
   $("footer").html(generateFooter());
   if (page == "about") {
+    headerWhite = true;
     fixHeader();
   }
 
