@@ -108,6 +108,7 @@ function openNav(page) {
   }, 100);
   $(".hamburger").addClass("close");
   $("header").removeClass("dark");
+  headerWhite = false;
   $("header .logo img").attr(
     "src",
     `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
