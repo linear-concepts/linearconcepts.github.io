@@ -302,6 +302,17 @@ nav {
   width: 90%;
   margin: 0 auto; }
 
+.splits {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
+  .splits .split {
+    width: calc(50% - 20px);
+    padding: 10px; }
+
 .split-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -721,7 +732,7 @@ h6.lite {
   font-weight: 300; }
 
 .text-bold {
-  font-weight: 500; }
+  font-weight: 700; }
 
 .center {
   text-align: center; }
@@ -742,7 +753,7 @@ h5 {
   font-size: 1.5em; }
 
 h6 {
-  font-size: 1.1em; }
+  font-size: 1.25em; }
 
 p {
   color: #333333;
@@ -750,10 +761,43 @@ p {
   line-height: 1.75;
   font-size: 0.95em;
   font-weight: 400;
+  text-align: justify;
   font-family: "FaktPro", sans-serif; }
+
+.person-image {
+  width: 80px;
+  height: 80px;
+  background: #eee;
+  border-radius: 100%;
+  margin: 25px 0px; }
+
+p.no-line-height {
+  line-height: 1.35; }
 
 p.lg {
   font-size: 1.2em; }
+
+p.social a {
+  font-size: 1.25em;
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  color: #000;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease; }
+  p.social a i {
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease; }
+
+p.social a:hover {
+  border: none; }
+
+p.social a:hover > i {
+  color: #888; }
 
 hr {
   width: 40px;
@@ -915,6 +959,9 @@ p a:hover {
       font-weight: 700;
       color: #000;
       font-size: 1.1em; }
+
+p.sm {
+  font-size: 0.8em; }
 
 footer {
   padding: 15px 0px;
@@ -1133,6 +1180,10 @@ footer.with-top-border .content-lg {
     section.projects .project-gallery .background,
     section.projects .project-gallery .background-delay {
       background: none; }
+  .splits {
+    display: block; }
+    .splits .split {
+      width: calc(100% - 20px); }
   footer {
     padding: 5px 0px; }
     footer .content-lg {

@@ -23,7 +23,9 @@ function generateLinks(page) {
       <div class="link ${page == "services" ? "current" : ""}"><a href="${
     page == "home" ? "./" : "../"
   }services"><div class="title">Services</div></a></div>
-      <div class="link"><div class="title">Contact</div></div>
+      <div class="link ${page == "contact" ? "current" : ""}"><a href="${
+    page == "home" ? "./" : "../"
+  }contact"><div class="title">Contact</div></a></div>
     </div>`;
   return innerHTML;
 }
