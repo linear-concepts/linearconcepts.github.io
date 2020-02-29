@@ -28,7 +28,7 @@
 /*Body*/
 body {
   margin: 0px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Muli", sans-serif;
   background-color: #fff; }
 
 a {
@@ -98,7 +98,7 @@ header {
       transition: all 0.2s ease; }
       header .links .link .title {
         position: relative;
-        font-weight: 400;
+        font-weight: 700;
         color: rgba(255, 255, 255, 0.75);
         font-size: 0.9em;
         padding: 3px 2px;
@@ -125,7 +125,7 @@ header {
       header .links .link .menu {
         position: absolute;
         top: 100%;
-        left: -5px;
+        left: -2px;
         width: 120px;
         background: #eee;
         padding: 4px 0px;
@@ -141,7 +141,8 @@ header {
         header .links .link .menu .menu-item {
           color: rgba(0, 0, 0, 0.75);
           font-size: 0.8em;
-          padding: 5px 15px;
+          font-weight: 600;
+          padding: 5px 10px;
           padding-bottom: 4px;
           -webkit-transition: all 0.2s ease;
           -moz-transition: all 0.2s ease;
@@ -267,7 +268,7 @@ nav {
     nav .links .link {
       margin: 10px 0px;
       text-align: center;
-      font-family: "Montserrat", sans-serif; }
+      font-family: "Muli", sans-serif; }
       nav .links .link .title {
         position: relative;
         font-weight: 300;
@@ -337,6 +338,18 @@ section.color {
 section.white {
   background-color: #fff; }
 
+section.no-space {
+  display: none;
+  padding: 0px; }
+  section.no-space .cards-container {
+    margin: 0px; }
+    section.no-space .cards-container .card {
+      height: 200px;
+      margin: 0px;
+      width: 50%; }
+    section.no-space .cards-container .card-full {
+      width: 100%; }
+
 section.black {
   background-color: #000; }
   section.black h1,
@@ -347,11 +360,30 @@ section.black {
   section.black h6 {
     color: #fff; }
   section.black button {
-    background: #151515; }
+    background: #222; }
+  section.black button:after {
+    opacity: 0.1; }
   section.black p {
     color: #ddd; }
   section.black hr {
     border: 2px solid #fff; }
+
+section.services {
+  position: relative;
+  background-image: url("../img/Coban Residencies/CLUB (11).jpg");
+  background-size: 175% auto;
+  background-position: center center;
+  z-index: 10; }
+
+section.services:before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1; }
 
 section.landing-about {
   padding-top: 0px;
@@ -510,11 +542,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Muli", sans-serif;
   color: #000;
   font-weight: 600;
   margin: 10px 0px;
   line-height: 1.1; }
+
+.margins {
+  margin: 20px 0px; }
 
 h1.lite,
 h2.lite,
@@ -539,22 +574,22 @@ h6.lite {
   text-align: center; }
 
 h1 {
-  font-size: 3.5em; }
+  font-size: 3.6em; }
 
 h2 {
   font-size: 3em; }
 
 h3 {
-  font-size: 2.3em; }
+  font-size: 2.5em; }
 
 h4 {
   font-size: 2em; }
 
 h5 {
-  font-size: 1.75em; }
+  font-size: 1.5em; }
 
 h6 {
-  font-size: 1.5em; }
+  font-size: 1.1em; }
 
 p {
   color: #333333;
@@ -581,11 +616,11 @@ button {
   cursor: pointer;
   color: #fff;
   outline: none;
-  font-weight: 500;
+  font-weight: 700;
   border: none;
   border-radius: 0;
   z-index: 10;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Muli", sans-serif;
   font-size: 0.9em;
   overflow: hidden;
   -webkit-transition: all 0.25s cubic-bezier(0.43, 0.13, 0.15, 0.99);
@@ -662,11 +697,72 @@ p a:hover {
     background-size: cover;
     background-position: center center; }
 
+/*SERVICES*/
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .gallery .card {
+    width: calc(33% - 40px);
+    margin: 20px;
+    -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05); }
+    .gallery .card .screen {
+      width: 100%;
+      height: 150px;
+      background-color: #bbafa9; }
+    .gallery .card .mp {
+      background-image: url("../img/Proposed Housing/Club House Cam_Highrez_.jpg");
+      background-size: cover;
+      background-position: center center; }
+    .gallery .card .ud {
+      background-image: url("../img/Affordable Housing/affordable_again.jpg");
+      background-size: cover;
+      background-position: center center; }
+    .gallery .card .gbd {
+      background-image: url("../img/Micasa/aerial.jpg");
+      background-size: 200% auto;
+      background-position: center center; }
+    .gallery .card .ad {
+      background-image: url("../img/Micasa/club.jpg");
+      background-size: 200% auto;
+      background-position: center center; }
+    .gallery .card .cad {
+      background-image: url("../img/Osho House/Babbar's Residence-19.jpg");
+      background-size: cover;
+      background-position: center center; }
+    .gallery .card .id {
+      background-image: url("../img/Satyasheel/4.jpg");
+      background-size: cover;
+      background-position: center center; }
+    .gallery .card .pm {
+      background-image: url("../img/Linen Vogue/5.jpg");
+      background-size: cover;
+      background-position: center center; }
+    .gallery .card .tdv {
+      background-image: url("../img/Proposed Housing/site_send.jpg");
+      background-size: cover;
+      background-position: center center; }
+    .gallery .card .caption {
+      width: calc(100% - 50px);
+      padding: 25px;
+      font-family: "Muli", sans-serif;
+      font-weight: 700;
+      color: #000;
+      font-size: 1.1em; }
+
 footer {
-  padding: 20px 0px;
+  padding: 15px 0px;
   background: #fff; }
   footer .content-lg {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -676,7 +772,7 @@ footer {
   footer p.sm {
     color: rgba(0, 0, 0, 0.75);
     font-size: 0.7em;
-    width: 50%; }
+    width: 60%; }
     footer p.sm .fas {
       font-size: 0.75em; }
   footer .socials {
@@ -699,7 +795,10 @@ footer {
       -o-transition: all 0.25s ease;
       transition: all 0.25s ease; }
     footer .socials a:hover {
-      color: #000 !important; }
+      color: #888 !important; }
+
+footer.with-top-border .content-lg {
+  border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 @media only screen and (max-width: 1000px) {
   .content {
@@ -741,6 +840,11 @@ footer {
     .split-container.s-40-60 .split {
       width: 100% !important;
       padding: 0px !important; }
+    .split-container .split:nth-child(2),
+    .split-container.s-40-60 .split:nth-child(2) {
+      display: none; }
+  section.no-space {
+    display: block; }
   .cards-container {
     margin: 20px 0px; }
     .cards-container .card {
@@ -748,7 +852,10 @@ footer {
       width: calc(50% - 10px);
       margin: 5px; }
     .cards-container .card-full {
-      width: 100%; } }
+      width: 100%; }
+  .gallery .card {
+    width: calc(50% - 24px);
+    margin: 10px; } }
 
 @media only screen and (max-width: 600px) {
   .content {
@@ -776,7 +883,7 @@ footer {
   section.fix-space-top {
     padding-top: 15px; }
   section.intro {
-    padding-top: 120px; }
+    padding-top: 140px; }
   section.landing-about {
     padding-top: 30px;
     background: #fff; }
@@ -789,4 +896,27 @@ footer {
     width: calc(50% - 10px);
     margin: 5px; }
   .cards-container .card-full {
-    width: 100%; } }
+    width: 100%; }
+  .gallery .card {
+    width: calc(100% - 22px);
+    margin: 10px; }
+  footer {
+    padding: 5px 0px; }
+    footer .content-lg {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap-reverse;
+      flex-wrap: wrap-reverse; }
+    footer .socials {
+      width: 100%;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      margin: 2px 0px;
+      padding: 2px 0px; }
+    footer p.sm {
+      margin-top: 2px;
+      font-size: 0.7em;
+      width: 100%;
+      text-align: center; } }

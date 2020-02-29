@@ -1,6 +1,6 @@
 /*Mixins and Essentials*/
 
-$primary-font: "Montserrat", sans-serif;
+$primary-font: "Muli", sans-serif;
 $secondary-font: "FaktPro", sans-serif;
 $primary-color: #000;
 $secondary-color: #bbafa9;
@@ -107,7 +107,7 @@ header {
 
       .title {
         position: relative;
-        font-weight: 400;
+        font-weight: 700;
         color: rgba(255, 255, 255, 0.75);
         font-size: 0.9em;
         padding: 3px 2px;
@@ -133,7 +133,7 @@ header {
       .menu {
         position: absolute;
         top: 100%;
-        left: -5px;
+        left: -2px;
         width: 120px;
         background: #eee;
         padding: 4px 0px;
@@ -146,7 +146,8 @@ header {
         .menu-item {
           color: rgba(0, 0, 0, 0.75);
           font-size: 0.8em;
-          padding: 5px 15px;
+          font-weight: 600;
+          padding: 5px 10px;
           padding-bottom: 4px;
           @include transition(0.2s);
         }
@@ -373,6 +374,23 @@ section.white {
   background-color: #fff;
 }
 
+section.no-space {
+  display: none;
+  padding: 0px;
+
+  .cards-container {
+    margin: 0px;
+    .card {
+      height: 200px;
+      margin: 0px;
+      width: 50%;
+    }
+    .card-full {
+      width: 100%;
+    }
+  }
+}
+
 section.black {
   background-color: #000;
 
@@ -386,7 +404,11 @@ section.black {
   }
 
   button {
-    background: #151515;
+    background: #222;
+  }
+
+  button:after {
+    opacity: 0.1;
   }
 
   p {
@@ -396,6 +418,25 @@ section.black {
   hr {
     border: 2px solid #fff;
   }
+}
+
+section.services {
+  position: relative;
+  background-image: url("../img/Coban Residencies/CLUB (11).jpg");
+  background-size: 175% auto;
+  background-position: center center;
+  z-index: 10;
+}
+
+section.services:before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
 }
 
 section.landing-about {
@@ -539,6 +580,10 @@ h6 {
   line-height: 1.1;
 }
 
+.margins {
+  margin: 20px 0px;
+}
+
 h1.lite,
 h2.lite,
 h3.lite,
@@ -566,7 +611,7 @@ h6.lite {
 }
 
 h1 {
-  font-size: 3.5em;
+  font-size: 3.6em;
 }
 
 h2 {
@@ -574,7 +619,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2.3em;
+  font-size: 2.5em;
 }
 
 h4 {
@@ -582,11 +627,11 @@ h4 {
 }
 
 h5 {
-  font-size: 1.75em;
+  font-size: 1.5em;
 }
 
 h6 {
-  font-size: 1.5em;
+  font-size: 1.1em;
 }
 
 p {
@@ -618,7 +663,7 @@ button {
   cursor: pointer;
   color: #fff;
   outline: none;
-  font-weight: 500;
+  font-weight: 700;
   border: none;
   border-radius: 0;
   z-index: 10;
@@ -708,12 +753,90 @@ p {
   }
 }
 
+/*SERVICES*/
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  .card {
+    width: calc(33% - 40px);
+    margin: 20px;
+    // background: #f7f7f7;
+    // border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+
+    .screen {
+      width: 100%;
+      height: 150px;
+      background-color: $secondary-color;
+    }
+
+    .mp {
+      background-image: url("../img/Proposed Housing/Club House Cam_Highrez_.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .ud {
+      background-image: url("../img/Affordable Housing/affordable_again.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .gbd {
+      background-image: url("../img/Micasa/aerial.jpg");
+      background-size: 200% auto;
+      background-position: center center;
+    }
+
+    .ad {
+      background-image: url("../img/Micasa/club.jpg");
+      background-size: 200% auto;
+      background-position: center center;
+    }
+
+    .cad {
+      background-image: url("../img/Osho House/Babbar's Residence-19.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .id {
+      background-image: url("../img/Satyasheel/4.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .pm {
+      background-image: url("../img/Linen Vogue/5.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .tdv {
+      background-image: url("../img/Proposed Housing/site_send.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .caption {
+      width: calc(100% - 50px);
+      padding: 25px;
+      font-family: $primary-font;
+      font-weight: 700;
+      color: $text-dark;
+      font-size: 1.1em;
+    }
+  }
+}
+
 footer {
-  padding: 20px 0px;
+  padding: 15px 0px;
   background: #fff;
 
   .content-lg {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
   }
@@ -721,7 +844,7 @@ footer {
   p.sm {
     color: rgba(0, 0, 0, 0.75);
     font-size: 0.7em;
-    width: 50%;
+    width: 60%;
 
     .fas {
       font-size: 0.75em;
@@ -742,8 +865,14 @@ footer {
     }
 
     a:hover {
-      color: $primary-color !important;
+      color: #888 !important;
     }
+  }
+}
+
+footer.with-top-border {
+  .content-lg {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -816,6 +945,14 @@ footer {
       width: 100% !important;
       padding: 0px !important;
     }
+
+    .split:nth-child(2) {
+      display: none;
+    }
+  }
+
+  section.no-space {
+    display: block;
   }
 
   .cards-container {
@@ -829,6 +966,13 @@ footer {
 
     .card-full {
       width: 100%;
+    }
+  }
+
+  .gallery {
+    .card {
+      width: calc(50% - 24px);
+      margin: 10px;
     }
   }
 }
@@ -885,7 +1029,7 @@ footer {
   }
 
   section.intro {
-    padding-top: 120px;
+    padding-top: 140px;
   }
 
   section.landing-about {
@@ -907,6 +1051,35 @@ footer {
     }
     .card-full {
       width: 100%;
+    }
+  }
+
+  .gallery {
+    .card {
+      width: calc(100% - 22px);
+      margin: 10px;
+    }
+  }
+
+  footer {
+    padding: 5px 0px;
+    .content-lg {
+      //border-top: 1px solid rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap-reverse;
+    }
+
+    .socials {
+      width: 100%;
+      justify-content: center;
+      margin: 2px 0px;
+      padding: 2px 0px;
+    }
+    p.sm {
+      margin-top: 2px;
+      font-size: 0.7em;
+      width: 100%;
+      text-align: center;
     }
   }
 }

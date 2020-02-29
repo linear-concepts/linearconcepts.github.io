@@ -10,18 +10,18 @@ function generateLinks(page) {
       <div class="link ${page == "about" || page == "team" ? "current" : ""}">
         <div class="title">About</div>
         <div class="menu">
-        <!--<a href="${
+        <a href="${
           page == "home" ? "./" : "../"
-        }about">--><div class="menu-item">About Us</div><!--</a>-->
+        }about"><div class="menu-item">About Us</div></a>
           <div class="menu-item">Our Team</div>
         </div>
       </div>
       <div class="link ${
         page == "projects" ? "current" : ""
       }"><div class="title">Projects</div></div>
-      <div class="link ${
-        page == "services" ? "current" : ""
-      }"><div class="title">Services</div></div>
+      <div class="link ${page == "services" ? "current" : ""}"><a href="${
+    page == "home" ? "./" : "../"
+  }services"><div class="title">Services</div></a></div>
       <div class="link"><div class="title">Contact</div></div>
     </div>`;
   return innerHTML;
@@ -131,10 +131,6 @@ $(document).ready(function() {
   $("header").html(generateHeader(page));
   $("nav").html(generateLinks(page));
   $("footer").html(generateFooter());
-  if (page == "about") {
-    headerWhite = true;
-    fixHeader();
-  }
 
   $(window).scroll(function() {
     if (!navToggle) {
