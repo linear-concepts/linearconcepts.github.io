@@ -12,7 +12,9 @@ function generateLinks(page) {
         <a href="${
           page == "home" ? "./" : "../"
         }about"><div class="menu-item">About Us</div></a>
-          <div class="menu-item">Our Team</div>
+        <a href="${
+          page == "home" ? "./" : "../"
+        }team"><div class="menu-item">Our Team</div></a>
         </div>
       </div>
       <div class="link ${page == "projects" ? "current" : ""}"><a href="${

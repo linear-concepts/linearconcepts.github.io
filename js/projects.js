@@ -4,8 +4,8 @@ $(document).ready(function() {
       .attr("class")
       .split(" ")[1];
     $(".background").css("opacity", "0");
-    $(".background").css("height", "120%");
-    $(".background").css("width", "120%");
+    $(".background").css("height", "110%");
+    $(".background").css("width", "110%");
     $(".background").attr("class", "background");
     $(".background").addClass(type);
     setTimeout(function() {
