@@ -1,5 +1,4 @@
 let navToggle = false;
-let headerWhite = false;
 
 function generateLinks(page) {
   const innerHTML = `<div class="links">
@@ -66,24 +65,18 @@ function generateFooter() {
 
 function headerScroll(page) {
   let i = $(window).scrollTop();
-  if (i > 25) {
-    if (!headerWhite) {
-      $("header").addClass("dark");
-      $("header .logo img").attr(
-        "src",
-        `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
-      );
-      headerWhite = true;
-    }
+  if (i > 0) {
+    $("header").addClass("dark");
+    $("header .logo img").attr(
+      "src",
+      `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
+    );
   } else {
-    if (headerWhite) {
-      $("header").removeClass("dark");
-      $("header .logo img").attr(
-        "src",
-        `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
-      );
-      headerWhite = false;
-    }
+    $("header").removeClass("dark");
+    $("header .logo img").attr(
+      "src",
+      `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
+    );
   }
 }
 
@@ -94,7 +87,6 @@ function openNav(page) {
   }, 100);
   $(".hamburger").addClass("close");
   $("header").removeClass("dark");
-  headerWhite = false;
   $("header .logo img").attr(
     "src",
     `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
