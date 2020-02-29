@@ -19,7 +19,4 @@ $(document).ready(function() {
       $(".background-delay").addClass(type);
     }, 250);
   });
-  $(".project-gallery").mouseleave(function() {
-    console.info("leave");
-  });
 });

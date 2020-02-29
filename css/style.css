@@ -1061,6 +1061,8 @@ footer.with-top-border .content-lg {
       width: calc(50% - 2px);
       height: calc(100% / 6 - 2px);
       z-index: 10; }
+      section.projects .project-gallery .project .name {
+        text-align: left; }
     section.projects .project-gallery .project:hover {
       background-color: none; }
     section.projects .project-gallery .project:after {
@@ -1070,7 +1072,7 @@ footer.with-top-border .content-lg {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.3);
       z-index: -1; }
     section.projects .project-gallery .avh {
       background-image: url("../img/AV House/LC_AV (6 of 20).jpg");
@@ -1090,8 +1092,7 @@ footer.with-top-border .content-lg {
       background-position: center center; }
     section.projects .project-gallery .micasa {
       background-image: url("../img/Micasa/road_drive.jpg");
-      background-size: 150% auto;
-      background-repeat: no-repeat;
+      background-size: cover;
       background-position: center center; }
     section.projects .project-gallery .satyasheel {
       background-image: url("../img/Satyasheel/2.jpg");
@@ -1111,7 +1112,7 @@ footer.with-top-border .content-lg {
       background-position: center center; }
     section.projects .project-gallery .rv {
       background-image: url("../img/Residential Villa/B4.jpg");
-      background-size: 120% auto;
+      background-size: cover;
       background-repeat: no-repeat;
       background-position: center center; }
     section.projects .project-gallery .leaf {
