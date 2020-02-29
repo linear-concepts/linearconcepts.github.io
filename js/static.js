@@ -1,5 +1,4 @@
 let navToggle = false;
-let scrollHeaderFlag = true;
 let headerWhite = false;
 
 function generateLinks(page) {
@@ -61,35 +60,9 @@ function generateFooter() {
   return footerHTML;
 }
 
-function fixHeader() {
-  $("header").addClass("dark");
-  $("header .logo img").attr("src", "../img/LCLogoBlack.svg");
-  scrollHeaderFlag = false;
-}
-
 function headerScroll(page) {
-  if (scrollHeaderFlag) {
-    let i = $(window).scrollTop();
-    if (i > 25) {
-      if (!headerWhite) {
-        $("header").addClass("dark");
-        $("header .logo img").attr(
-          "src",
-          `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
-        );
-        headerWhite = true;
-      }
-    } else {
-      if (headerWhite) {
-        $("header").removeClass("dark");
-        $("header .logo img").attr(
-          "src",
-          `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
-        );
-        headerWhite = false;
-      }
-    }
-  } else {
+  let i = $(window).scrollTop();
+  if (i > 25) {
     if (!headerWhite) {
       $("header").addClass("dark");
       $("header .logo img").attr(
@@ -97,6 +70,15 @@ function headerScroll(page) {
         `${page == "home" ? "./" : "../"}img/LCLogoBlack.svg`
       );
       headerWhite = true;
+    }
+  } else {
+    if (headerWhite) {
+      $("header").removeClass("dark");
+      $("header .logo img").attr(
+        "src",
+        `${page == "home" ? "./" : "../"}img/LCLogoWhite.svg`
+      );
+      headerWhite = false;
     }
   }
 }

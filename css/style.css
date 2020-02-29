@@ -246,7 +246,7 @@ nav {
   position: fixed;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.85);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   display: none;
@@ -285,7 +285,7 @@ nav {
         -webkit-transform: translate(-50%, 0);
         -ms-transform: translate(-50%, 0);
         transform: translate(-50%, 0);
-        background: rgba(255, 255, 255, 0.5); }
+        background: rgba(255, 255, 255, 0.25); }
       nav .links .link .menu-item {
         font-family: "FaktPro", sans-serif;
         font-weight: 300;
@@ -344,7 +344,7 @@ section.no-space {
   section.no-space .cards-container {
     margin: 0px; }
     section.no-space .cards-container .card {
-      height: 200px;
+      height: 175px;
       margin: 0px;
       width: 50%; }
     section.no-space .cards-container .card-full {
