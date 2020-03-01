@@ -50,11 +50,62 @@ $text: rgb(51, 51, 51);
 }
 
 /*Body*/
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  z-index: 999;
+}
+
+@keyframes path {
+  0% {
+    stroke-dasharray: 0, 251;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 125, 125;
+    stroke-dashoffset: -60;
+  }
+  100% {
+    stroke-dasharray: 0, 255;
+    stroke-dashoffset: -250;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.filler {
+  stroke-dasharray: 0, 0;
+  stroke-linecap: round;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+  stroke: #fff;
+  animation: path 1s ease infinite;
+}
+
+.trans {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: rotate 4s ease infinite;
+}
 
 body {
   margin: 0px;
   font-family: $primary-font;
-  background-color: #fff;
+  background-color: #000;
 }
 
 a {
@@ -458,14 +509,54 @@ section.projects {
 
       .name {
         position: absolute;
-        width: calc(100% - 30px);
-        padding: 15px;
+        width: calc(100% - 40px);
+        margin: 20px;
         bottom: 0px;
-        font-size: 1.1em;
-        font-weight: 700;
-        text-align: right;
-        color: #fff;
+        overflow: hidden;
+
+        p {
+          position: relative;
+          top: 0px;
+          font-size: 1.1em;
+          font-weight: 700;
+          margin: 0px;
+          text-align: right;
+          color: #fff;
+          line-height: 1;
+          @include smoothtransition(0.4s);
+        }
       }
+      .name-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        padding: 0px;
+        margin: 0px auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+
+        p {
+          text-transform: uppercase;
+          position: relative;
+          top: 50px;
+          text-align: center;
+          margin: 0px;
+          color: #fff;
+          font-size: 0.9em;
+          font-weight: 700;
+          letter-spacing: 2px;
+          @include smoothtransition(0.4s);
+        }
+      }
+    }
+
+    .project:hover > .name p {
+      top: 50px;
+    }
+    .project:hover > .name-center p {
+      top: 0px;
     }
 
     .project.avh:hover {
@@ -1311,12 +1402,19 @@ footer.with-top-border {
         height: calc(100% / 6 - 2px);
         z-index: 10;
 
-        .name {
+        .name p {
           text-align: left;
+        }
+
+        .name-center {
+          display: none;
         }
       }
       .project:hover {
         background-color: none;
+      }
+      .project:hover > .name p {
+        top: 0px;
       }
       .project:after {
         content: "";

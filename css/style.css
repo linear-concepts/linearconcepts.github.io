@@ -26,10 +26,78 @@
   background: #c4bdb188; }
 
 /*Body*/
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  z-index: 999; }
+
+@-webkit-keyframes path {
+  0% {
+    stroke-dasharray: 0, 251;
+    stroke-dashoffset: 0; }
+  50% {
+    stroke-dasharray: 125, 125;
+    stroke-dashoffset: -60; }
+  100% {
+    stroke-dasharray: 0, 255;
+    stroke-dashoffset: -250; } }
+
+@keyframes path {
+  0% {
+    stroke-dasharray: 0, 251;
+    stroke-dashoffset: 0; }
+  50% {
+    stroke-dasharray: 125, 125;
+    stroke-dashoffset: -60; }
+  100% {
+    stroke-dasharray: 0, 255;
+    stroke-dashoffset: -250; } }
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg); }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg); } }
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg); }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg); } }
+
+.filler {
+  stroke-dasharray: 0, 0;
+  stroke-linecap: round;
+  stroke-dashoffset: 0;
+  -webkit-transition: stroke-dashoffset 1s linear;
+  -o-transition: stroke-dashoffset 1s linear;
+  transition: stroke-dashoffset 1s linear;
+  stroke: #fff;
+  -webkit-animation: path 1s ease infinite;
+  animation: path 1s ease infinite; }
+
+.trans {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(0deg);
+  -ms-transform: translate(-50%, -50%) rotate(0deg);
+  transform: translate(-50%, -50%) rotate(0deg);
+  -webkit-animation: rotate 4s ease infinite;
+  animation: rotate 4s ease infinite; }
+
 body {
   margin: 0px;
   font-family: "Muli", sans-serif;
-  background-color: #fff; }
+  background-color: #000; }
 
 a {
   color: inherit !important;
@@ -419,13 +487,53 @@ section.projects {
       transition: all 0.25s ease; }
       section.projects .project-gallery .project .name {
         position: absolute;
-        width: calc(100% - 30px);
-        padding: 15px;
+        width: calc(100% - 40px);
+        margin: 20px;
         bottom: 0px;
-        font-size: 1.1em;
-        font-weight: 700;
-        text-align: right;
-        color: #fff; }
+        overflow: hidden; }
+        section.projects .project-gallery .project .name p {
+          position: relative;
+          top: 0px;
+          font-size: 1.1em;
+          font-weight: 700;
+          margin: 0px;
+          text-align: right;
+          color: #fff;
+          line-height: 1;
+          -webkit-transition: all 0.4s cubic-bezier(0.43, 0.13, 0.15, 0.99);
+          -moz-transition: all 0.4s cubic-bezier(0.43, 0.13, 0.15, 0.99);
+          -o-transition: all 0.4s cubic-bezier(0.43, 0.13, 0.15, 0.99);
+          transition: all 0.4s cubic-bezier(0.43, 0.13, 0.15, 0.99); }
+      section.projects .project-gallery .project .name-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        padding: 0px;
+        margin: 0px auto;
+        height: auto;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        overflow: hidden; }
+        section.projects .project-gallery .project .name-center p {
+          text-transform: uppercase;
+          position: relative;
+          top: 50px;
+          text-align: center;
+          margin: 0px;
+          color: #fff;
+          font-size: 0.9em;
+          font-weight: 700;
+          letter-spacing: 2px;
+          -webkit-transition: all 0.4s cubic-bezier(0.43, 0.13, 0.15, 0.99);
+          -moz-transition: all 0.4s cubic-bezier(0.43, 0.13, 0.15, 0.99);
+          -o-transition: all 0.4s cubic-bezier(0.43, 0.13, 0.15, 0.99);
+          transition: all 0.4s cubic-bezier(0.43, 0.13, 0.15, 0.99); }
+    section.projects .project-gallery .project:hover > .name p {
+      top: 50px; }
+    section.projects .project-gallery .project:hover > .name-center p {
+      top: 0px; }
     section.projects .project-gallery .project.avh:hover {
       background-color: #745e41; }
     section.projects .project-gallery .project.coban:hover {
@@ -1116,10 +1224,14 @@ footer.with-top-border .content-lg {
       width: calc(50% - 2px);
       height: calc(100% / 6 - 2px);
       z-index: 10; }
-      section.projects .project-gallery .project .name {
+      section.projects .project-gallery .project .name p {
         text-align: left; }
+      section.projects .project-gallery .project .name-center {
+        display: none; }
     section.projects .project-gallery .project:hover {
       background-color: none; }
+    section.projects .project-gallery .project:hover > .name p {
+      top: 0px; }
     section.projects .project-gallery .project:after {
       content: "";
       position: absolute;

@@ -105,6 +105,7 @@ function closeNav(page) {
 }
 
 $(document).ready(function() {
+  $(".loader").css("display", "none");
   const page = $("header").attr("aria-label");
   $("header").html(generateHeader(page));
   $("nav").html(generateLinks(page));
