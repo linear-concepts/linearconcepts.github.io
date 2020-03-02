@@ -590,7 +590,12 @@ section.full {
   .left-arrow {
     position: absolute;
     left: 2%;
-    transform: translate(0%, -50%) rotateY(180deg);
+  }
+  .left-arrow:after {
+    transform: rotate(-45deg);
+  }
+  .left-arrow:before {
+    transform: rotate(45deg);
   }
 }
 

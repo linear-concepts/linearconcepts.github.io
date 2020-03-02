@@ -584,9 +584,15 @@ section.full {
     transform: rotate(-45deg); }
   .expanded-view .left-arrow {
     position: absolute;
-    left: 2%;
-    -webkit-transform: translate(0%, -50%) rotateY(180deg);
-    transform: translate(0%, -50%) rotateY(180deg); }
+    left: 2%; }
+  .expanded-view .left-arrow:after {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .expanded-view .left-arrow:before {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); }
 
 @-webkit-keyframes down {
   0% {
