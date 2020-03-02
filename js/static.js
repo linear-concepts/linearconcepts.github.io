@@ -105,10 +105,6 @@ function closeNav(page) {
 }
 
 $(document).ready(function() {
-  $(".loader").animate({ opacity: "0" }, 500);
-  setTimeout(function() {
-    $(".loader").css("display", "none");
-  }, 500);
   const page = $("header").attr("aria-label");
   $("header").html(generateHeader(page));
   $("nav").html(generateLinks(page));
