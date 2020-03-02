@@ -565,7 +565,9 @@ section.full {
     right: 2%;
     transform: translate(0%, -50%);
     color: #fff;
+    overflow: visible;
     cursor: pointer;
+    z-index: 2000;
   }
   .left-arrow:after,
   .left-arrow:before,
@@ -579,6 +581,7 @@ section.full {
     left: 0;
     background: #fff;
     transform: rotate(45deg);
+    -webkit-appearance: none;
   }
 
   .left-arrow:before,

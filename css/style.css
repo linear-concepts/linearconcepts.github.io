@@ -561,7 +561,9 @@ section.full {
     -ms-transform: translate(0%, -50%);
     transform: translate(0%, -50%);
     color: #fff;
-    cursor: pointer; }
+    overflow: visible;
+    cursor: pointer;
+    z-index: 2000; }
   .expanded-view .left-arrow:after,
   .expanded-view .left-arrow:before,
   .expanded-view .right-arrow:after,
@@ -575,7 +577,8 @@ section.full {
     background: #fff;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
-    transform: rotate(45deg); }
+    transform: rotate(45deg);
+    -webkit-appearance: none; }
   .expanded-view .left-arrow:before,
   .expanded-view .right-arrow:before {
     top: calc(100% - 4px);
