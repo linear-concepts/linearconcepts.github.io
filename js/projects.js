@@ -19,4 +19,11 @@ $(document).ready(function() {
       $(".background-delay").addClass(type);
     }, 250);
   });
+  $(".project").click(function() {
+    let url = $(this).attr("aria-label");
+    $(".project").css("opacity", "0");
+    setTimeout(function() {
+      window.location = `../${url}`;
+    }, 500);
+  });
 });

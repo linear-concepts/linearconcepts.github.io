@@ -2,7 +2,7 @@
 ::-webkit-scrollbar {
   width: 12px;
   height: 5px;
-  background: #fff; }
+  background: white; }
 
 ::-webkit-scrollbar-thumb {
   height: 6px;
@@ -438,6 +438,217 @@ section.header-cover {
   height: 70px;
   padding: 0px; }
 
+section.full {
+  height: 100vh;
+  padding: 0px; }
+
+.populate-project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .populate-project div {
+    position: relative;
+    height: 200px;
+    width: calc(25% - 20px);
+    margin: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .populate-project div:hover {
+    -webkit-box-shadow: 0 0 0 0.2rem white;
+    box-shadow: 0 0 0 0.2rem white;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05); }
+  .populate-project img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    min-height: 100%;
+    min-width: 100%;
+    max-height: 400px;
+    max-width: 400px;
+    cursor: pointer;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease; }
+
+.hide-item {
+  display: none; }
+
+.expanded-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.75);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  z-index: 1500;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .expanded-view img {
+    max-height: 80%;
+    max-width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+  .expanded-view .cross {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 20px;
+    right: 10px;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #fff;
+    cursor: pointer; }
+  .expanded-view .cross:after,
+  .expanded-view .cross:before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .expanded-view .cross:before {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .expanded-view .left-arrow,
+  .expanded-view .right-arrow {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 50%;
+    right: 2%;
+    -webkit-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+    color: #fff;
+    cursor: pointer; }
+  .expanded-view .left-arrow:after,
+  .expanded-view .left-arrow:before,
+  .expanded-view .right-arrow:after,
+  .expanded-view .right-arrow:before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .expanded-view .left-arrow:before,
+  .expanded-view .right-arrow:before {
+    top: calc(100% - 4px);
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .expanded-view .left-arrow {
+    position: absolute;
+    left: 2%;
+    -webkit-transform: translate(0%, -50%) rotateY(180deg);
+    transform: translate(0%, -50%) rotateY(180deg); }
+
+@-webkit-keyframes down {
+  0% {
+    top: 5px;
+    opacity: 1; }
+  90% {
+    top: 15px;
+    opacity: 0.5; } }
+
+@keyframes down {
+  0% {
+    top: 5px;
+    opacity: 1; }
+  90% {
+    top: 15px;
+    opacity: 0.5; } }
+
+section.project-section {
+  position: relative;
+  z-index: 0; }
+  section.project-section .content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 0; }
+  section.project-section .scroll-down {
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    -webkit-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+    width: 15px;
+    height: 30px;
+    border-radius: 15px;
+    border: 2px solid #fff; }
+  section.project-section .scroll-down:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    height: 5px;
+    width: 5px;
+    border-radius: 100%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    background: #fff;
+    -webkit-animation: down 1.5s infinite;
+    animation: down 1.5s infinite; }
+
+section.project-section:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: -1; }
+
 section.projects {
   padding: 0px;
   height: calc(100vh);
@@ -461,6 +672,7 @@ section.projects {
       transform: translate(-50%, -50%);
       width: 100%;
       height: 100%;
+      z-index: 0;
       pointer-events: none; }
     section.projects .project-gallery .background {
       position: absolute;
@@ -472,15 +684,16 @@ section.projects {
       width: 100%;
       height: 100%;
       opacity: 0;
+      z-index: 0;
       pointer-events: none; }
     section.projects .project-gallery .project {
       position: relative;
       width: calc(25% - 2px);
       height: calc(100% / 3 - 2px);
-      background-color: rgba(0, 0, 0, 0.3);
       background-image: unset;
       border: 1px solid rgba(255, 255, 255, 0.1);
       cursor: pointer;
+      z-index: 10;
       -webkit-transition: all 0.25s ease;
       -moz-transition: all 0.25s ease;
       -o-transition: all 0.25s ease;
@@ -558,6 +771,15 @@ section.projects {
       background-color: #cfa976; }
     section.projects .project-gallery .project.affordable:hover {
       background-color: #353133; }
+  section.projects .project-gallery:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0; }
 
 .avh {
   background-image: url("../img/AV House/LC_AV (6 of 20).jpg");
@@ -1170,7 +1392,22 @@ footer.with-top-border .content-lg {
     margin: 10px; }
   section.projects .project-gallery .project {
     width: calc(33.33% - 2px);
-    height: calc(25% - 2px); } }
+    height: calc(25% - 2px); }
+  .expanded-view .left-arrow,
+  .expanded-view .right-arrow,
+  .expanded-view .cross {
+    height: 20px;
+    width: 20px; }
+  .expanded-view .left-arrow:after,
+  .expanded-view .left-arrow:before,
+  .expanded-view .right-arrow:after,
+  .expanded-view .right-arrow:before {
+    top: 3px; }
+  .expanded-view .left-arrow:before,
+  .expanded-view .right-arrow:before {
+    top: calc(100% - 3px); }
+  .populate-project div {
+    width: calc(33.33% - 20px); } }
 
 @media only screen and (max-width: 600px) {
   .content {
@@ -1217,81 +1454,87 @@ footer.with-top-border .content-lg {
     margin: 10px; }
   .mobile-section {
     display: block; }
+  .populate-project div {
+    width: calc(50% - 20px);
+    height: 120px; }
   section.projects {
     height: 150vh; }
-    section.projects .project-gallery .project {
+    section.projects .project-gallery {
       position: relative;
-      width: calc(50% - 2px);
-      height: calc(100% / 6 - 2px);
       z-index: 10; }
-      section.projects .project-gallery .project .name p {
-        text-align: left; }
-      section.projects .project-gallery .project .name-center {
-        display: none; }
-    section.projects .project-gallery .project:hover {
-      background-color: none; }
-    section.projects .project-gallery .project:hover > .name p {
-      top: 0px; }
-    section.projects .project-gallery .project:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: -1; }
-    section.projects .project-gallery .avh {
-      background-image: url("../img/AV House/LC_AV (6 of 20).jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .coban {
-      background-image: url("../img/Coban Residencies/SIDE VIEW (3).jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .lvogue {
-      background-image: url("../img/Linen Vogue/2.jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .osho {
-      background-image: url("../img/Osho House/Babbar's Residence-9.jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .micasa {
-      background-image: url("../img/Micasa/road_drive.jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .satyasheel {
-      background-image: url("../img/Satyasheel/2.jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .ph {
-      background-image: url("../img/Proposed Housing/pool night cam_highrez_.jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .rch {
-      background-image: url("../img/Residential Cube House/Bath-1.jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .rh {
-      background-image: url("../img/Residential Housing/cam_2.jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .rv {
-      background-image: url("../img/Residential Villa/B4.jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .leaf {
-      background-image: url("../img/The Leaf House/Image 13.jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .affordable {
-      background-image: url("../img/Affordable Housing/SITE_TOWER_10.jpg");
-      background-size: cover;
-      background-position: center center; }
-    section.projects .project-gallery .background,
-    section.projects .project-gallery .background-delay {
-      background: none; }
+      section.projects .project-gallery .project {
+        position: relative;
+        width: calc(50% - 2px);
+        height: calc(100% / 6 - 2px);
+        z-index: 10; }
+        section.projects .project-gallery .project .name p {
+          text-align: left; }
+        section.projects .project-gallery .project .name-center {
+          display: none; }
+      section.projects .project-gallery .project:hover {
+        background-color: none; }
+      section.projects .project-gallery .project:hover > .name p {
+        top: 0px; }
+      section.projects .project-gallery .project:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: -1; }
+      section.projects .project-gallery .avh {
+        background-image: url("../img/AV House/LC_AV (6 of 20).jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .coban {
+        background-image: url("../img/Coban Residencies/SIDE VIEW (3).jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .lvogue {
+        background-image: url("../img/Linen Vogue/2.jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .osho {
+        background-image: url("../img/Osho House/Babbar's Residence-9.jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .micasa {
+        background-image: url("../img/Micasa/road_drive.jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .satyasheel {
+        background-image: url("../img/Satyasheel/2.jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .ph {
+        background-image: url("../img/Proposed Housing/pool night cam_highrez_.jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .rch {
+        background-image: url("../img/Residential Cube House/Bath-1.jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .rh {
+        background-image: url("../img/Residential Housing/cam_2.jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .rv {
+        background-image: url("../img/Residential Villa/B4.jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .leaf {
+        background-image: url("../img/The Leaf House/Image 13.jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .affordable {
+        background-image: url("../img/Affordable Housing/SITE_TOWER_10.jpg");
+        background-size: cover;
+        background-position: center center; }
+      section.projects .project-gallery .background,
+      section.projects .project-gallery .background-delay {
+        background: none; }
   .splits {
     display: block; }
     .splits .split {
