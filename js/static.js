@@ -56,8 +56,8 @@ function generateFooter() {
     Copyright Linear Concepts 2020 &middot; Made by <a>Abhinav Thukral</a>
   </p>
   <div class="socials">
-    <a><i class="fab fa-facebook-f"></i></a>
-    <a><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/linearconceptsdelhi/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/linearconcepts/" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
 </div>`;
   return footerHTML;
