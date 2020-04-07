@@ -1528,8 +1528,9 @@ footer.with-top-border .content-lg {
   .mobile-section {
     display: block; }
   .populate-project div {
-    width: calc(50% - 20px);
-    height: 120px; }
+    width: calc(50% - 10px);
+    margin: 5px;
+    height: 150px; }
   section.projects {
     height: 150vh; }
     section.projects .project-gallery {

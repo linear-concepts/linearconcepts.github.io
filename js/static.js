@@ -33,9 +33,9 @@ function generateHeader(page) {
   const headerHTML =
     `<div class="content-lg">
     <div class="logo">
-      <img src="${
-        page == "home" ? "./" : "../"
-      }img/LCLogoWhite.svg" alt="Linear Concepts Logo" />
+    <a href="${page == "home" ? "./" : "../"}"><img src="${
+      page == "home" ? "./" : "../"
+    }img/LCLogoWhite.svg" alt="Linear Concepts Logo" /></a>
     </div>
     ` +
     generateLinks(page) +
@@ -82,7 +82,7 @@ function headerScroll(page) {
 
 function openNav(page) {
   $("nav").css("display", "block");
-  setTimeout(function() {
+  setTimeout(function () {
     $("nav").css("opacity", "1");
   }, 100);
   $(".hamburger").addClass("close");
@@ -96,7 +96,7 @@ function openNav(page) {
 
 function closeNav(page) {
   $("nav").css("opacity", "0");
-  setTimeout(function() {
+  setTimeout(function () {
     $("nav").css("display", "none");
   }, 500);
   $(".hamburger").removeClass("close");
@@ -104,19 +104,19 @@ function closeNav(page) {
   navToggle = false;
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
   const page = $("header").attr("aria-label");
   $("header").html(generateHeader(page));
   $("nav").html(generateLinks(page));
   $("footer").html(generateFooter());
 
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if (!navToggle) {
       headerScroll(page);
     }
   });
 
-  $("header").on("click", ".hamburger", function() {
+  $("header").on("click", ".hamburger", function () {
     if (navToggle) {
       closeNav(page);
     } else {
